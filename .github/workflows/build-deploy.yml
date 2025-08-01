@@ -30,8 +30,10 @@ jobs:
               run: pnpm run pretty:check
 
             - name: Build
-              if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
-              run: pnpm run build
+              # if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
+              run: |
+                  while true; do free -h; sleep 1; done &
+                  pnpm run build
 
             - name: Run tests
               run: pnpm run test
